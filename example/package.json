@@ -4,13 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "emulate": "firebase emulators:start --import=./testdata --export-on-exit",
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
   "dependencies": {
     "display": "^0.1.9",
     "react-app-polyfill": "^1.0.0",
-    "react-firebaseui": "^4.2.0",
+    "react-firebaseui": "^5.0.2",
     "tailwindcss": "^1.9.1"
   },
   "alias": {

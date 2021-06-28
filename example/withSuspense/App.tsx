@@ -26,6 +26,9 @@ const preloadSDKs = firebaseApp => {
     preloadFirestore({
       firebaseApp,
       setup(firestore) {
+        if(window.location.hostname === 'localhost') {
+          firestore().settings({ host: 'localhost:8080', ssl: false });
+        }
         return firestore().enablePersistence();
       }
     }),
@@ -36,7 +39,15 @@ const preloadSDKs = firebaseApp => {
         return storage().setMaxUploadRetryTime(10000);
       }
     }),
-    preloadAuth({ firebaseApp }),
+    preloadAuth({
+      firebaseApp,
+      setup(auth) {
+        if(window.location.hostname === 'localhost') {
+          return auth().useEmulator('http://localhost:9099');
+        }
+        return auth();
+      }
+    }),
     preloadRemoteConfig({
       firebaseApp,
       setup(remoteConfig) {
@@ -86,14 +97,8 @@ const App = () => {
       <Card title="Firestore">
         <Firestore />
       </Card>
-      <Card title="Realtime Database">
-        <RealtimeDatabase />
-      </Card>
       <Card title="Remote Config">
         <RemoteConfig />
-      </Card>
-      <Card title="Storage">
-        <Storage />
       </Card>
     </>
   );

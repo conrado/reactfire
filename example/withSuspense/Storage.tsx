@@ -48,7 +48,7 @@ export function Storage() {
     <SuspenseWithPerf fallback={<LoadingSpinner />} traceId="storage-root">
       <AuthCheck fallback={<span>Sign in to use this component</span>}>
         <CardSection title="Fetch image">
-          <StorageImage storagePath="Cloud Storage for Firebase (Independent Icon).png" alt="demo download" style={{ width: '200px', height: '200px' }} />
+          <StorageImage storagePath="/images/logo512.png" alt="demo download" style={{ width: '200px', height: '200px' }} />
         </CardSection>
         <CardSection title="Upload image">
           <ImageUploadButton />

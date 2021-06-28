@@ -13,7 +13,7 @@ import './styles.pcss';
  * You'll need to use an experimental build of React to use Concurrent mode
  * https://reactjs.org/docs/concurrent-mode-adoption.html#installation
  */
-const SUSPENSE_MODE_ENABLED = false;
+const SUSPENSE_MODE_ENABLED = true;
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBg3u1sJlyJwQCE95oSDH_mtLABS-is8ZM',
